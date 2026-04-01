@@ -1,13 +1,46 @@
 # Conceptual Architecture for Supply Chain Management with AWS
 
-**Published:** 2025-04-17
-**Medium:** [https://medium.com/@kyle-t-jones/conceptual-architecture-for-supply-chain-management-with-aws-a302638fac0f](https://medium.com/@kyle-t-jones/conceptual-architecture-for-supply-chain-management-with-aws-a302638fac0f)
+This project demonstrates conceptual architecture for supply chain management using AWS.
 
-## About
+## Article
 
-Place the code for this article in this repository.
-The original article export is saved as `article.md`.
+Medium article: [Conceptual Architecture for Supply Chain Management with AWS](https://medium.com/@kylejones_47003/conceptual-architecture-for-supply-chain-management-with-aws-a302638fac0f)
 
-## Files
+## Project Structure
 
-Add your `.ipynb`, `.py`, `.yaml`, `.js`, `.ts`, or other project files here.
+```
+.
+├── README.md           # This file
+├── main.py            # Main entry point
+├── config.yaml        # Configuration file
+├── requirements.txt   # Python dependencies
+├── src/               # Core functions
+│   ├── core.py        # Supply chain functions
+│   └── plotting.py    # Tufte-style plotting utilities
+├── tests/             # Unit tests
+├── data/              # Data files
+└── images/            # Generated plots and figures
+```
+
+## Configuration
+
+Edit `config.yaml` to customize:
+- Data source or synthetic generation
+- Number of supply chain nodes
+- AWS services configuration
+- Output settings
+
+## AWS Architecture
+
+AWS services for supply chain:
+- **EventBridge**: Event-driven architecture
+- **Step Functions**: Workflow orchestration
+- **DynamoDB**: NoSQL database
+- **Lambda**: Serverless compute
+- **S3**: Data storage
+
+## Caveats
+
+- By default, generates synthetic supply chain data.
+- Full AWS deployment requires AWS credentials and infrastructure setup.
+- Real-world implementation requires integration with ERP systems.
