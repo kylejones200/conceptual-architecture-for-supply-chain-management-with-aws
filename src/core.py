@@ -35,7 +35,7 @@ def analyze_supply_chain(df: pd.DataFrame, inventory_cols: list) -> Dict:
     }
 
 def plot_supply_chain(df: pd.DataFrame, inventory_cols: list, title: str, output_path: Path):
- """Plot supply chain data """
+    """Plot supply chain data """
     fig, ax = plt.subplots(figsize=(10, 6))
     
     for col in inventory_cols:
