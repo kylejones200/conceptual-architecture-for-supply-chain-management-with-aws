@@ -34,18 +34,19 @@ def analyze_supply_chain(df: pd.DataFrame, inventory_cols: list) -> Dict:
         'total_inventory': df[inventory_cols].sum(axis=1).mean()
     }
 
-def plot_supply_chain(df: pd.DataFrame, inventory_cols: list, title: str, output_path: Path):
+def plot_supply_chain(df: pd.DataFrame, inventory_cols: list, title: str, output_path: Path, plot: bool = False):
     """Plot supply chain data """
-    fig, ax = plt.subplots(figsize=(10, 6))
+    if plot:
+        fig, ax = plt.subplots(figsize=(10, 6))
     
-    for col in inventory_cols:
-        ax.plot(df['timestamp'], df[col], label=col.replace('_', ' ').title(), 
-               linewidth=1.2, alpha=0.7)
+        for col in inventory_cols:
+            ax.plot(df['timestamp'], df[col], label=col.replace('_', ' ').title(), 
+                   linewidth=1.2, alpha=0.7)
     
-    ax.set_xlabel("Time")
-    ax.set_ylabel("Inventory")
-    ax.legend(loc='best')
+        ax.set_xlabel("Time")
+        ax.set_ylabel("Inventory")
+        ax.legend(loc='best')
     
-    plt.savefig(output_path, dpi=100, bbox_inches="tight")
-    plt.close()
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
 
