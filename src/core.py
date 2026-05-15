@@ -3,7 +3,6 @@
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from typing import Dict
 import matplotlib.pyplot as plt
 import logging
 
@@ -25,7 +24,7 @@ def simulate_supply_chain_data(n_points: int, n_nodes: int = 4, seed: int = 42) 
     
     return pd.DataFrame(data)
 
-def analyze_supply_chain(df: pd.DataFrame, inventory_cols: list) -> Dict:
+def analyze_supply_chain(df: pd.DataFrame, inventory_cols: list) -> dict:
     """Analyze supply chain data."""
     return {
         'n_samples': len(df),
