@@ -38,7 +38,7 @@ def main():
     elif config['data']['generate_synthetic']:
                 df = simulate_supply_chain_data(config['data']['n_points'], config['data']['n_nodes'],
                                        config['data']['seed'])
-        inventory_cols = [col for col in df.columns if 'inventory' in col.lower()]
+                inventory_cols = [col for col in df.columns if 'inventory' in col.lower()]
     else:
         raise ValueError("No data source specified")
     
