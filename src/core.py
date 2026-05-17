@@ -47,21 +47,23 @@ def plot_supply_chain(
     plot: bool = False,
 ):
     """Plot supply chain data"""
-    if plot:
-        fig, ax = plt.subplots(figsize=(10, 6))
+    if not plot:
+        return
 
-        for col in inventory_cols:
-            ax.plot(
-                df["timestamp"],
-                df[col],
-                label=col.replace("_", " ").title(),
-                linewidth=1.2,
-                alpha=0.7,
-            )
+    fig, ax = plt.subplots(figsize=(10, 6))
 
-        ax.set_xlabel("Time")
-        ax.set_ylabel("Inventory")
-        ax.legend(loc="best")
+    for col in inventory_cols:
+        ax.plot(
+            df["timestamp"],
+            df[col],
+            label=col.replace("_", " ").title(),
+            linewidth=1.2,
+            alpha=0.7,
+        )
 
-        plt.savefig(output_path, dpi=100, bbox_inches="tight")
-        plt.close()
+    ax.set_xlabel("Time")
+    ax.set_ylabel("Inventory")
+    ax.legend(loc="best")
+
+    plt.savefig(output_path, dpi=100, bbox_inches="tight")
+    plt.close()
