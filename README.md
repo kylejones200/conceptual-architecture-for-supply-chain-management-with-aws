@@ -2,6 +2,14 @@
 
 This project demonstrates conceptual architecture for supply chain management using AWS.
 
+## Business context
+
+Supply chains are dynamic, global ecosystems --- subject to volatility, complexity, and constant change. To keep up, companies must rethink how they orchestrate procurement, inventory, distribution, and collaboration. And that means going digital --- not with scattered tools, but with a unified, cloud-native architecture.
+
+This guide explores a modern supply chain management system built on AWS Cloud. Designed for resilience, flexibility, and intelligence, this architecture brings together real-time data, modular design, and secure governance --- enabling faster decisions, tighter coordination, and smarter forecasting.
+
+This architecture doesn't just digitize your supply chain --- it reinvents how your organization interacts with it. By decoupling key functions into services and layering governance across the stack, it enables seamless collaboration, adaptive workflows, and enterprise-wide visibility.
+
 ## Article
 
 Medium article: [Conceptual Architecture for Supply Chain Management with AWS](https://medium.com/@kylejones_47003/conceptual-architecture-for-supply-chain-management-with-aws-a302638fac0f)
