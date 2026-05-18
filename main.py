@@ -17,7 +17,7 @@ logging.basicConfig(
 )
 
 
-def load_config(config_path: Path = None) -> dict:
+def load_config(config_path: Path | None = None) -> dict:
     """Load configuration from YAML file."""
     if config_path is None:
         config_path = Path(__file__).parent / "config.yaml"
@@ -38,7 +38,6 @@ def main():
         "--output-dir", type=Path, default=None, help="Output directory"
     )
     args = parser.parse_args()
-
     config = load_config(args.config)
     output_dir = (
         Path(args.output_dir)
@@ -46,7 +45,6 @@ def main():
         else Path(config["output"]["figures_dir"])
     )
     output_dir.mkdir(exist_ok=True)
-
     if args.data_path and args.data_path.exists():
         df = pd.read_csv(args.data_path)
         df["timestamp"] = pd.to_datetime(df["timestamp"])
@@ -60,23 +58,19 @@ def main():
         inventory_cols = [col for col in df.columns if "inventory" in col.lower()]
     else:
         raise ValueError("No data source specified")
-
         analysis = analyze_supply_chain(df, inventory_cols)
 
-    logging.info(f"\nSupply Chain Analysis:")
+    logging.info("\nSupply Chain Analysis:")
     logging.info(f"Number of samples: {analysis['n_samples']}")
     logging.info(f"Number of nodes: {analysis['n_nodes']}")
     logging.info(f"Total average inventory: {analysis['total_inventory']:.2f}")
-
     logging.info(f"\nAWS Services: {', '.join(config['aws']['services'])}")
-
     plot_supply_chain(
         df,
         inventory_cols,
         "Supply Chain Management Architecture",
         output_dir / "supply_chain.png",
     )
-
     logging.info(f"\nAnalysis complete. Figures saved to {output_dir}")
 
 
